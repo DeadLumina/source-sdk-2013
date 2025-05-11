@@ -678,7 +678,9 @@ void CInput::CAM_ToThirdPerson(void)
 	QAngle viewangles;
 
 	engine->GetViewAngles( viewangles );
-
+	
+	m_CameraIsOrthographic = true
+	
 	if( !m_fCameraInThirdPerson )
 	{
 		m_fCameraInThirdPerson = true; 
@@ -700,6 +702,7 @@ void CInput::CAM_ToFirstPerson(void)
 	g_ThirdPersonManager.SetDesiredCameraOffset( vec3_origin );
 
 	m_fCameraInThirdPerson = false;
+	m_CameraIsOrthographic = false;
 	cam_command.SetValue( 0 );
 
 	// Let the local player know
